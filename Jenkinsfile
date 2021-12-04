@@ -1,15 +1,9 @@
 pipeline {
     stages {
-        stage('Initialize'){
-                def dockerHome = tool 'mon-docker'
-                env.PATH = "${dockerHome}/bin:${env.PATH}"
-        }
-        stage('Build') {
+        stage('Build image') {
             steps {
                 echo 'Building..'
-                sh "pwd"
-                sh "ls -l"
-                sh "docker -v"
+                app = docker.build("hello-world")
             }
         }
         stage('Test') {
