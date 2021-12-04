@@ -1,12 +1,12 @@
 pipeline {
-    agent any
+    agent {
+        dockerfile true
+    }
     stages {
         stage('Build image') {
-            app = docker.build("hello-world")
             steps {
                 echo 'Building..'
-                sh "pwd"
-                sh "ls"
+                sh 'ls -l'
             }
         }
         stage('Test') {
