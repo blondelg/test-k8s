@@ -5,12 +5,14 @@ pipeline {
             steps {
                 echo 'Building..'
                 sh 'ls -l'
-                sh 'docker -v'
+                sh 'docker build -t my-app .'
+                sh 'docker image ls'
             }
         }
         stage('Test') {
             steps {
                 echo 'Testing..'
+                sh 'docker image ls'
             }
         }
         stage('Deploy') {
