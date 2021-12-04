@@ -1,6 +1,7 @@
 pipeline {
-    agent {
-        docker { image 'hello-world:latest' }
+    stage('Initialize'){
+            def dockerHome = tool 'mon-docker'
+            env.PATH = "${dockerHome}/bin:${env.PATH}"
     }
     stages {
         stage('Build') {
@@ -8,6 +9,7 @@ pipeline {
                 echo 'Building..'
                 sh "pwd"
                 sh "ls -l"
+                sh "docker -v"
             }
         }
         stage('Test') {
