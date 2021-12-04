@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-            }
+                pwd            }
         }
         stage('Test') {
             steps {
@@ -16,6 +16,17 @@ pipeline {
             steps {
                 echo 'Deploying....'
             }
+        }
+    }
+    post {
+        always {
+            //
+        }
+        success {
+            //
+        }
+        failure {
+            //
         }
     }
 }
