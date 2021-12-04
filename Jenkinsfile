@@ -1,13 +1,13 @@
 pipeline {
-    agent any
-
+    agent {
+        docker { image 'hello-world:latest' }
+    }
     stages {
         stage('Build') {
             steps {
                 echo 'Building..'
                 sh "pwd"
                 sh "ls -l"
-                sh "docker -v"
             }
         }
         stage('Test') {
