@@ -4,7 +4,9 @@ pipeline {
         stage('Build image') {
             steps {
                 echo 'Building..'
+                sh 'whoami'
                 sh 'su root'
+                sh 'whoami'
                 sh 'dockerd'
                 sh 'docker build -t my-app .'
                 sh 'docker image ls'
