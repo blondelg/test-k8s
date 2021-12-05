@@ -7,13 +7,13 @@ pipeline {
         stage('Build image') {
             steps {
                 echo 'Building..'
+                sh 'dockerd'
                 sh "docker version"
             }
         }
         stage('Test') {
             steps {
                 echo 'Testing..'
-                sh 'dockerd'
                 sh 'docker image ls'
             }
         }
