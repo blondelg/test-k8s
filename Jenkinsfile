@@ -1,12 +1,12 @@
 pipeline {
-    agent {
-        docker { image 'node:14-alpine' }
+    agent any
+    tools {
+        'org.jenkinsci.plugins.docker.commons.tools.DockerTool' '18.09'
     }
     stages {
         stage('Build image') {
             steps {
                 echo 'Building..'
-                sh 'node --version'
             }
         }
         stage('Test') {
