@@ -7,6 +7,7 @@ pipeline {
         stage('Build image') {
             steps {
                 echo 'Building..'
+                sh "docker version"
             }
         }
         stage('Test') {
